@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "yu-swiper-slide": "/components/yu-swiper-slide/yu-swiper-slide"
+  }
+}

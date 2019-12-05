@@ -1,0 +1,25 @@
+/* components/yu-swiper/yu-swiper.wxss */
+.yu-swiper {
+  position: relative;
+  overflow: hide;
+}
+.dot-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  width: 100%;
+  height: 40rpx;
+  top: 500rpx;
+}
+.dot__item {
+  height: 10rpx;
+  width: 10rpx;
+  border-radius: 10rpx;
+  background: #6c6a66;
+  margin-left: 10rpx;
+}
+.dot__item.active {
+  background: #fff;
+}

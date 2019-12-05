@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="swiper-container">
+    <yu-swiper>
+      <yu-swiper-slide>
+        <view class="test-img yellow"></view>
+      </yu-swiper-slide>
+      <yu-swiper-slide>
+        <view class="test-img gray"></view>
+      </yu-swiper-slide>
+      <yu-swiper-slide>
+        <view class="test-img green"></view>
+      </yu-swiper-slide>
+      <yu-swiper-slide>
+        <view class="test-img" style="background: #EB9352;"></view>
+      </yu-swiper-slide>
+      <yu-swiper-slide>
+        <view class="test-img" style="background: #7CC0A2;"></view>
+      </yu-swiper-slide>
+      <yu-swiper-slide>
+        <view class="test-img" style="background: #9769D3;"></view>
+      </yu-swiper-slide>
+    </yu-swiper>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+/* components/yu-swiper-slide/yu-swiper-slide.wxss */
+.yu-swiper__slide {
+  position: absolute;
+  width: 100%;
+  transition: transform 1s, opacity 1.5s .3s;
+}

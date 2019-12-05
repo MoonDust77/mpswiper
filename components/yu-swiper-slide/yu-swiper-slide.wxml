@@ -1,0 +1,6 @@
+<!--components/yu-swiper-slide/yu-swiper-slide.wxml-->
+<view
+  class="yu-swiper__slide"
+  style="transform: translate3d({{translateX}}, {{translateY}}, 0rpx) scale({{scale}}); z-index: {{zIndex}}; opacity: {{opacity}}">
+  <slot></slot>
+</view>

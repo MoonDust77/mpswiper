@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "yu-swiper": "/components/yu-swiper/yu-swiper",
+    "yu-swiper-slide": "/components/yu-swiper-slide/yu-swiper-slide"
+  },
+  "navigationBarTitleText": "FLORAVITA"
+}
