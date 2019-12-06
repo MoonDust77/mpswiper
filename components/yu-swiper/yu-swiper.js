@@ -3,7 +3,7 @@
 let _timer = null
 let nodes = null
 const showPage = 3
-const maskColorArr = ['none', '#C2C2C2', '#DCDCDC']
+const maskColorArr = ['none', '#C2C2C2', '#DCDCDC'] // 数量要和showPage数量相同
 const translateYStep = 40
 const scaleStep = 0.06
 
@@ -99,7 +99,7 @@ Component({
         let translateY = 0
         let scale = 1
         let opacity = 0
-        let maskColor = maskColorArr[2]
+        let maskColor = maskColorArr[showPage - 1]
         if (i < showPage) {
           translateY = i * translateYStep
           scale = 1 - i * scaleStep
@@ -163,13 +163,17 @@ Component({
       let translateY = (showPage - 1) * translateYStep
       let scale = 1 - (showPage - 1) * scaleStep
       let opacity = 0
+      let maskColor = maskColorArr[showPage - 1]
+      if (nodes.length < showPage) {
+        maskColor = maskColorArr[nodes.length - 1]
+      }
       nodes[current].setData({
         translateX: '0rpx',
         translateY: translateY + 'rpx',
         scale,
         zIndex: 1,
         opacity,
-        maskColorArr: maskColorArr[2]
+        maskColor: maskColor
       })
     },
     _setNextSlidePosition(start) {
