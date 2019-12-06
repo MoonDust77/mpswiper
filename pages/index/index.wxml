@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="swiper-container">
-    <yu-swiper indicator-dots="{{false}}">
+    <yu-swiper indicator-dots="{{true}}" autoplay="{{true}}">
       <yu-swiper-slide>
         <view class="test-img yellow"></view>
       </yu-swiper-slide>

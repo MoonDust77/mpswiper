@@ -3,6 +3,10 @@
 let _timer = null
 let nodes = null
 const showPage = 3
+const maskColorArr = ['none', '#C2C2C2', '#DCDCDC']
+const translateYStep = 40
+const scaleStep = 0.06
+
 Component({
   /**
    * 组件的属性列表
@@ -95,19 +99,22 @@ Component({
         let translateY = 0
         let scale = 1
         let opacity = 0
+        let maskColor = maskColorArr[2]
         if (i < showPage) {
-          translateY = i * 25
-          scale = 1 - i * 0.02
+          translateY = i * translateYStep
+          scale = 1 - i * scaleStep
           opacity = 1
+          maskColor = maskColorArr[i]
         } else {
-          translateY = (showPage - 1) * 25
-          scale = 1 - (showPage - 1) * 0.02
+          translateY = (showPage - 1) * translateYStep
+          scale = 1 - (showPage - 1) * scaleStep
         }
         nodes[i].setData({
           translateY: translateY + 'rpx',
           scale,
           zIndex: nodes.length - i,
-          opacity
+          opacity,
+          maskColor
         })
       }
       // setTimeout(() => {
@@ -153,15 +160,16 @@ Component({
     },
     // 设置当前项移动后的位置，总数大于三项时，叠放在第三张后，并且隐藏，少于三张，则根据具体张数计算
     _setCurrentSlidePosition(current) {
-      let translateY = (showPage - 1) * 25
-      let scale = 1 - (showPage - 1) * 0.02
+      let translateY = (showPage - 1) * translateYStep
+      let scale = 1 - (showPage - 1) * scaleStep
       let opacity = 0
       nodes[current].setData({
         translateX: '0rpx',
         translateY: translateY + 'rpx',
         scale,
         zIndex: 1,
-        opacity
+        opacity,
+        maskColorArr: maskColorArr[2]
       })
     },
     _setNextSlidePosition(start) {
@@ -181,8 +189,8 @@ Component({
       }
       for (let index = 0; index < nextIndexArr.length; index++) {
         index = parseInt(index)
-        let translateY = index * 25
-        let scale = 1 - index * 0.02
+        let translateY = index * translateYStep
+        let scale = 1 - index * scaleStep
         if (nodes.length <= showPage && index === nextIndexArr.length - 1) {
           setTimeout(() => {
             nodes[nextIndexArr[index]].setData({
@@ -197,7 +205,8 @@ Component({
             translateX: '0rpx',
             translateY: translateY + 'rpx',
             scale,
-            opacity: 1
+            opacity: 1,
+            maskColor: maskColorArr[index]
           })
         }
       }

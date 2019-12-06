@@ -15,7 +15,8 @@ Component({
     translateY: '0rpx',
     scale: 1,
     zIndex: 1,
-    opacity: 0
+    opacity: 0,
+    maskColor: 'none'
   },
 
   relations: {
