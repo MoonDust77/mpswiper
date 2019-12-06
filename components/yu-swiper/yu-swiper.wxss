@@ -11,7 +11,7 @@
   z-index: 30;
   width: 100%;
   height: 40rpx;
-  top: 500rpx;
+  top: 580rpx;
 }
 .dot__item {
   height: 10rpx;

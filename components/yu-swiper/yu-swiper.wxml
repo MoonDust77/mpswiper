@@ -1,7 +1,7 @@
 <!--components/yu-swiper/yu-swiper.wxml-->
-<view class="yu-swiper">
+<view class="yu-swiper" catchtouchstart="handleTouchStart" catchtouchend="handleTouchEnd">
   <slot></slot>
-  <view class="dot-box">
+  <view class="dot-box" wx:if="{{indicatorDots}}">
     <view class="dot__item {{current === index ? 'active' : ''}}" wx:for="{{dotslength}}" wx:key="index"></view>
   </view>
 </view>

@@ -10,11 +10,15 @@ Component({
   properties: {
     autoplay: {
       type: Boolean,
-      value: true
+      value: false
     },
     interval: {
       type: Number,
       value: 5000
+    },
+    indicatorDots: {
+      type: Boolean,
+      value: true
     }
   },
   relations: {
@@ -37,17 +41,41 @@ Component({
    */
   data: {
     current: 0,
-    dotslength: 0
+    dotslength: 0,
+    isTouching: false,
+    touchStartX: 0,
+    touchEndX: 0
   },
 
   ready: function () {
     this._initSlides()
   },
 
+  detached() {
+    if (_timer) clearInterval(_timer)
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
+    handleTouchStart(e) {
+      this.setData({
+        isTouching: true,
+        touchStartX: e.touches[0].clientX,
+      })
+    },
+    handleTouchEnd(e) {
+      this.setData({
+        isTouching: true,
+        touchEndX: e.changedTouches[0].clientX,
+      })
+      let distance = this.data.touchEndX - this.data.touchStartX
+      if (Math.abs(distance) > 90) {
+        let direction = distance > 0 ? 'right' : 'left'
+        this._next(direction)
+      }
+    },
     _initSlides () {
       // 使用getRelationNodes可以获得nodes数组，包含所有已关联的custom-li，且是有序的
       nodes = this.getRelationNodes('../yu-swiper-slide/yu-swiper-slide')
@@ -89,18 +117,22 @@ Component({
         this._initAutoPlay()
       }
     },
+    // 初始化自动轮播
     _initAutoPlay () {
-      console.log('初始化自动执行...')
       if (_timer) clearInterval(_timer)
       _timer = setInterval(() => {
         this._next()
       }, this.data.interval)
     },
-    _next () {
+    _next(distance = 'left') {
       // 下一页
       let current = this.data.current
+      let translateX = '-100%'
+      if (distance === 'right') {
+        translateX = '100%'
+      }
       nodes[current].setData({
-        translateX: '-100%',
+        translateX,
         opacity: 0
       })
       // 1.5s动画结束后，放到最后一张
