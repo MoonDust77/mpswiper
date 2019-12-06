@@ -17,9 +17,9 @@
       <yu-swiper-slide>
         <view class="test-img" style="background: #7CC0A2;"></view>
       </yu-swiper-slide>
-      <yu-swiper-slide>
+      <!-- <yu-swiper-slide>
         <view class="test-img" style="background: #9769D3;"></view>
-      </yu-swiper-slide>
+      </yu-swiper-slide> -->
     </yu-swiper>
   </view>
 </view>
