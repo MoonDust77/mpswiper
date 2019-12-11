@@ -1,5 +1,5 @@
 /**index.wxss**/
-.swiper-container {
+.container {
   padding: 0 30rpx;
 }
 .test-img {
@@ -16,3 +16,5 @@
 .test-img.green {
   background: #95c17a;
 }
+
+/* 产品 */

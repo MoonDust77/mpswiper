@@ -1,13 +1,15 @@
 // components/yu-swiper/yu-swiper.js
 // 自动播放定时器
 let _timer = null
-let nodes = null
 const showPage = 3
 const maskColorArr = ['none', '#C2C2C2', '#DCDCDC'] // 数量要和showPage数量相同
 const translateYStep = 40
 const scaleStep = 0.06
 
 Component({
+  options: {
+    pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
+  },
   /**
    * 组件的属性列表
    */
@@ -23,6 +25,10 @@ Component({
     indicatorDots: {
       type: Boolean,
       value: true
+    },
+    itemHeight: {
+      type: Number,
+      value: 690
     }
   },
   relations: {
@@ -48,7 +54,10 @@ Component({
     dotslength: 0,
     isTouching: false,
     touchStartX: 0,
-    touchEndX: 0
+    touchEndX: 0,
+    swiperHeight: 0,
+    _nodes: [],
+    _timer: null
   },
 
   ready: function () {
@@ -56,6 +65,7 @@ Component({
   },
 
   detached() {
+    let _timer = this.data._timer
     if (_timer) clearInterval(_timer)
   },
 
@@ -82,7 +92,10 @@ Component({
     },
     _initSlides () {
       // 使用getRelationNodes可以获得nodes数组，包含所有已关联的custom-li，且是有序的
-      nodes = this.getRelationNodes('../yu-swiper-slide/yu-swiper-slide')
+      let nodes = this.getRelationNodes('../yu-swiper-slide/yu-swiper-slide')
+      this.setData({
+        _nodes: nodes
+      })
       if (nodes.length <= 1) {
         nodes[0].setData({
           translateY: '0rpx',
@@ -92,8 +105,16 @@ Component({
         })
         return
       }
+      let swiperHeight = 0
+      if (nodes.length < showPage) {
+        // 设置高
+        swiperHeight = this.data.itemHeight + (nodes.length - 1) * translateYStep
+      } else {
+        swiperHeight = this.data.itemHeight + (showPage - 1) * translateYStep
+      }
       this.setData({
-        dotslength: nodes.length
+        dotslength: nodes.length,
+        swiperHeight
       })
       for (let i = 0; i < nodes.length; i++) {
         let translateY = 0
@@ -126,13 +147,18 @@ Component({
     },
     // 初始化自动轮播
     _initAutoPlay () {
+      let _timer = this.data._timer
       if (_timer) clearInterval(_timer)
       _timer = setInterval(() => {
         this._next()
       }, this.data.interval)
+      this.setData({
+        _timer
+      })
     },
     _next(distance = 'left') {
       // 下一页
+      let nodes = this.data._nodes
       let current = this.data.current
       let translateX = '-100%'
       if (distance === 'right') {
@@ -160,6 +186,7 @@ Component({
     },
     // 设置当前项移动后的位置，总数大于三项时，叠放在第三张后，并且隐藏，少于三张，则根据具体张数计算
     _setCurrentSlidePosition(current) {
+      let nodes = this.data._nodes
       let translateY = (showPage - 1) * translateYStep
       let scale = 1 - (showPage - 1) * scaleStep
       let opacity = 0
@@ -177,6 +204,7 @@ Component({
       })
     },
     _setNextSlidePosition(start) {
+      let nodes = this.data._nodes
       let nextIndexArr = []
       let size = showPage
       if (nodes.length < showPage) {
@@ -219,6 +247,7 @@ Component({
       }, 1500)
     },
     _setVisibleSlideIndex(nextIndexArr) {
+      let nodes = this.data._nodes
       for (let index in nextIndexArr) {
         nodes[nextIndexArr[index]].setData({
           zIndex: nodes.length - index

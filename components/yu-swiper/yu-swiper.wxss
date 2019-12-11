@@ -2,6 +2,7 @@
 .yu-swiper {
   position: relative;
   overflow: hide;
+  height: 
 }
 .dot-box {
   position: absolute;
