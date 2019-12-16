@@ -29,6 +29,10 @@ Component({
     itemHeight: {
       type: Number,
       value: 690
+    },
+    arrows: {
+      type: Boolean,
+      value: true
     }
   },
   relations: {
@@ -253,6 +257,12 @@ Component({
           zIndex: nodes.length - index
         })
       }
+    },
+    tapPre() {
+      this._next()
+    },
+    tapNext() {
+      this._next('right')
     }
   },
 })

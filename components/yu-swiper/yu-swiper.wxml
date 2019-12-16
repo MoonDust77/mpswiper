@@ -1,7 +1,15 @@
 <!--components/yu-swiper/yu-swiper.wxml-->
-<view class="yu-swiper" catchtouchstart="handleTouchStart" catchtouchend="handleTouchEnd" style="height: {{swiperHeight}}rpx;">
+<view class="yu-swiper" bindtouchstart="handleTouchStart" catchtouchend="handleTouchEnd" style="height: {{swiperHeight}}rpx;">
   <slot></slot>
   <view class="dot-box" wx:if="{{indicatorDots}}">
     <view class="dot__item {{current === index ? 'active' : ''}}" wx:for="{{dotslength}}" wx:key="index"></view>
   </view>
+  <block wx:if="{{arrows}}">
+    <view class="arrow-box" catchtap="tapPre">
+      <image src="assets/pre.png" class="arrow-img" />
+    </view>
+    <view class="arrow-box next" catchtap="tapNext">
+      <image src="assets/next.png" class="arrow-img" />
+    </view>
+  </block>
 </view>

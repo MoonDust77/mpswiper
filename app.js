@@ -1,4 +1,5 @@
 //app.js
+require('./mixins/mixin.js')
 import { compareVersion } from './utils/util'
 
 App({
