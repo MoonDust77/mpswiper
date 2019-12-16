@@ -1,0 +1,81 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+  <view class="member-card-wrapper">
+    <view class="member-card__image">
+      <view style="height: 344rpx; border-radius: 30rpx;background: #FFDD61;"></view>
+    </view>
+  </view>
+  <view class="cart-info-box">
+    <view class="title-box"></view>
+    <view class="list-box">
+      <!-- 商品item -->
+      <view class="list__item">
+        <view class="item__img-box">
+          <image src="" class="item__img-box__img" />
+        </view>
+        <view class="item__info">
+          <view class="info__text">
+            <view class="info__name"><text>商品名称</text></view>
+            <view><text>￥120.00</text></view>
+          </view>
+          <view class="info__number">
+            <view class="btn-cart btn-minus"></view>
+            <text class="text-number">99</text>
+            <view class="btn-cart btn-plus"></view>
+          </view>
+        </view>
+      </view>
+            <view class="list__item">
+        <view class="item__img-box">
+          <image src="" class="item__img-box__img" />
+        </view>
+        <view class="item__info">
+          <view class="info__text">
+            <view class="info__name">
+              <text>商品名称</text>
+            </view>
+            <view>
+              <text>￥120.00</text>
+            </view>
+          </view>
+          <view class="info__number">
+            <view class="btn-cart btn-minus"></view>
+            <text class="text-number">99</text>
+            <view class="btn-cart btn-plus"></view>
+          </view>
+        </view>
+      </view>
+            <view class="list__item">
+        <view class="item__img-box">
+          <image src="" class="item__img-box__img" />
+        </view>
+        <view class="item__info">
+          <view class="info__text">
+            <view class="info__name">
+              <text>商品名称</text>
+            </view>
+            <view>
+              <text>￥120.00</text>
+            </view>
+          </view>
+          <view class="info__number">
+            <view class="btn-cart btn-minus"></view>
+            <text class="text-number">99</text>
+            <view class="btn-cart btn-plus"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="info-box">
+      <view class="price-box">
+        <text>总价</text>
+        <text>￥120.00</text>
+      </view>
+      <view class="btn-row">
+        <view class="btn continue"><text>继续逛逛</text></view>
+        <view class="btn make-order"><text>支 付</text></view>
+      </view>
+    </view>
+    <view class="iphoneX-holder" wx:if="{{isIphoneX}}"></view>
+  </view>
+</view>
