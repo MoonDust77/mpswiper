@@ -6,7 +6,9 @@
     </view>
   </view>
   <view class="cart-info-box">
-    <view class="title-box"></view>
+    <view class="title-box">
+      <text class="title-text">已选商品</text>
+    </view>
     <view class="list-box">
       <!-- 商品item -->
       <view class="list__item">
@@ -19,13 +21,17 @@
             <view><text>￥120.00</text></view>
           </view>
           <view class="info__number">
-            <view class="btn-cart btn-minus"></view>
+            <view class="btn-cart">
+              <image src="../../assets/images/minus-num.png" class="btn-cart__img" />
+            </view>
             <text class="text-number">99</text>
-            <view class="btn-cart btn-plus"></view>
+            <view class="btn-cart btn-plus">
+              <image src="../../assets/images/add-num.png" class="btn-cart__img" />
+            </view>
           </view>
         </view>
       </view>
-            <view class="list__item">
+      <view class="list__item">
         <view class="item__img-box">
           <image src="" class="item__img-box__img" />
         </view>
@@ -39,13 +45,17 @@
             </view>
           </view>
           <view class="info__number">
-            <view class="btn-cart btn-minus"></view>
+            <view class="btn-cart">
+              <image src="../../assets/images/minus-num.png" class="btn-cart__img" />
+            </view>
             <text class="text-number">99</text>
-            <view class="btn-cart btn-plus"></view>
+            <view class="btn-cart btn-plus">
+              <image src="../../assets/images/add-num.png" class="btn-cart__img" />
+            </view>
           </view>
         </view>
       </view>
-            <view class="list__item">
+      <view class="list__item">
         <view class="item__img-box">
           <image src="" class="item__img-box__img" />
         </view>
@@ -59,9 +69,13 @@
             </view>
           </view>
           <view class="info__number">
-            <view class="btn-cart btn-minus"></view>
+            <view class="btn-cart">
+              <image src="../../assets/images/minus-num.png" class="btn-cart__img" />
+            </view>
             <text class="text-number">99</text>
-            <view class="btn-cart btn-plus"></view>
+            <view class="btn-cart btn-plus">
+              <image src="../../assets/images/add-num.png" class="btn-cart__img" />
+            </view>
           </view>
         </view>
       </view>

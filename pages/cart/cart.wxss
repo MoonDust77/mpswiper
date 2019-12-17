@@ -18,12 +18,16 @@
   padding-bottom: 26rpx;
   border-bottom: 4rpx solid #D9D9D9;
 }
+.title-text {
+  font-weight: bold;
+  color: #727272;
+}
 
 /* 商品 */
 .list-box {
   flex: 1;
   overflow: auto;
-  padding: 68rpx 30rpx 40rpx;
+  padding: 60rpx 30rpx 40rpx;
 }
 .list__item {
   display: flex;
@@ -77,8 +81,18 @@
   font-size: 32rpx;
 }
 .btn-cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex: 1;
   height: 80rpx;
+}
+.btn-cart.btn-plus {
+  justify-content: flex-start;
+}
+.btn-cart__img {
+  width: 28rpx;
+  height: 28rpx;
 }
 
 /* 价格等 */
