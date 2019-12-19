@@ -1,6 +1,5 @@
 // components/yu-swiper/yu-swiper.js
 // 自动播放定时器
-let _timer = null
 const showPage = 3
 const maskColorArr = ['none', '#C2C2C2', '#DCDCDC'] // 数量要和showPage数量相同
 const translateYStep = 40
@@ -40,6 +39,15 @@ Component({
       type: 'child', // 关联的目标节点应为子节点
       linked: function (target) {
         // 每次有yu-swiper-slide/yu-swiper-slide被插入时执行，target是该节点实例对象，触发在该节点attached生命周期之后
+        if (this.data._initTimer) {
+          clearInterval(this.data._initTimer)
+        }
+        let _initTimer = setTimeout(() => {
+          this._initSlides()
+        }, 200)
+        this.setData({
+          _initTimer
+        })
       },
       linkChanged: function (target) {
         // 每次有yu-swiper-slide/yu-swiper-slide被移动后执行，target是该节点实例对象，触发在该节点moved生命周期之后
@@ -61,11 +69,17 @@ Component({
     touchEndX: 0,
     swiperHeight: 0,
     _nodes: [],
-    _timer: null
+    _timer: null,
+    _initTimer: null,
+    _isMoving: false
   },
 
   ready: function () {
-    this._initSlides()
+    // this._initSlides()
+  },
+
+  attached: function() {
+    // console.log(this.getRelationNodes('../yu-swiper-slide/yu-swiper-slide'))
   },
 
   detached() {
@@ -97,6 +111,7 @@ Component({
     _initSlides () {
       // 使用getRelationNodes可以获得nodes数组，包含所有已关联的custom-li，且是有序的
       let nodes = this.getRelationNodes('../yu-swiper-slide/yu-swiper-slide')
+      if (nodes.length < 1) return
       this.setData({
         _nodes: nodes
       })
@@ -162,6 +177,10 @@ Component({
     },
     _next(distance = 'left') {
       // 下一页
+      if (this.data._isMoving) return
+      this.setData({
+        _isMoving: true
+      })
       let nodes = this.data._nodes
       let current = this.data.current
       let translateX = '-100%'
@@ -248,6 +267,9 @@ Component({
       }
       setTimeout(() => {
         this._setVisibleSlideIndex(nextIndexArr)
+        this.setData({
+          _isMoving: false
+        })
       }, 1500)
     },
     _setVisibleSlideIndex(nextIndexArr) {

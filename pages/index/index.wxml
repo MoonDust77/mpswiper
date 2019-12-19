@@ -2,40 +2,20 @@
 <view class="container">
   <view class="banner-container">
     <yu-swiper indicator-dots="{{true}}" autoplay="{{true}}" arrows="{{false}}">
-      <yu-swiper-slide>
-        <view class="test-img yellow"></view>
-      </yu-swiper-slide>
-      <yu-swiper-slide>
-        <view class="test-img gray"></view>
-      </yu-swiper-slide>
-      <yu-swiper-slide>
-        <view class="test-img green"></view>
-      </yu-swiper-slide>
-      <yu-swiper-slide>
-        <view class="test-img" style="background: #EB9352;"></view>
-      </yu-swiper-slide>
-      <yu-swiper-slide>
-        <view class="test-img" style="background: #7CC0A2;"></view>
+      <yu-swiper-slide wx:for="{{bannerList}}" wx:key="image">
+        <view class="image-box">
+          <image class="image" src="{{item.image}}" />
+        </view>
       </yu-swiper-slide>
     </yu-swiper>
   </view>
   <view class="product-container">
-    <view class="product__item">
+    <view class="product__item" wx:for="{{productionList}}" wx:key="index">
       <yu-swiper indicator-dots="{{false}}" >
-        <yu-swiper-slide>
-          <view class="test-img yellow"></view>
-        </yu-swiper-slide>
-        <yu-swiper-slide>
-          <view class="test-img gray"></view>
-        </yu-swiper-slide>
-        <yu-swiper-slide>
-          <view class="test-img green"></view>
-        </yu-swiper-slide>
-        <yu-swiper-slide>
-          <view class="test-img" style="background: #EB9352;"></view>
-        </yu-swiper-slide>
-        <yu-swiper-slide>
-          <view class="test-img" style="background: #7CC0A2;"></view>
+        <yu-swiper-slide wx:for="{{item}}" wx:for-item="product" wx:for-index="idx" wx:key="id">
+          <view class="image-box">
+            <image class="image" src="{{product.mainImage}}" />
+          </view>
         </yu-swiper-slide>
       </yu-swiper>
     </view>
@@ -43,4 +23,5 @@
   <view class="footer">
     
   </view>
+  <navigator url="/pages/cart/cart" class="btn-cart"></navigator>
 </view>

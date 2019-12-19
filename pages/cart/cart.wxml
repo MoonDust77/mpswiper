@@ -2,7 +2,8 @@
 <view class="container">
   <view class="member-card-wrapper">
     <view class="member-card__image">
-      <view style="height: 344rpx; border-radius: 30rpx;background: #FFDD61;"></view>
+      <image class="logo" src="https://images.jxpanda.com/icon/house-white-1.png?x-oss-process=image/resize,w_614" />
+      <image class="vase" src="https://images.jxpanda.com/icon/vase.png?x-oss-process=image/resize,w_150" />
     </view>
   </view>
   <view class="cart-info-box">

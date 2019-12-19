@@ -2,19 +2,27 @@
 .container {
   padding: 0 30rpx;
 }
-.test-img {
+.image-box {
   width: 100%;
   height: 690rpx;
+}
+.image {
+  width: 100%;
+  height: 100%;
   border-radius: 30rpx;
 }
-.test-img.yellow {
-  background: #ffd95b;
-}
-.test-img.gray {
-  background: #d3cd87;
-}
-.test-img.green {
-  background: #95c17a;
+
+.btn-cart {
+  position: fixed;
+  z-index: 999;
+  right: 15rpx;
+  bottom: 510rpx;
+  width: 106rpx;
+  height: 106rpx;
+  background: url('https://images.jxpanda.com/icon/vase-2.png?x-oss-process=image/resize,w_500') #ffffff;
+  background-size: cover;
+  border-radius: 106rpx;
+  box-shadow: 0 0 10rpx #999;
 }
 
 /* 产品 */
