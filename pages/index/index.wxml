@@ -15,6 +15,12 @@
         <yu-swiper-slide wx:for="{{item}}" wx:for-item="product" wx:for-index="idx" wx:key="id">
           <view class="image-box">
             <image class="image" src="{{product.mainImage}}" />
+            <view class="btn-add">
+              <image src="../../assets/images/add.png" class="btn-add__image" />
+            </view>
+            <view class="text-price">
+              <text>{{product.price}}</text>
+            </view>
           </view>
         </yu-swiper-slide>
       </yu-swiper>

@@ -3,6 +3,7 @@
   padding: 0 30rpx;
 }
 .image-box {
+  position: relative;
   width: 100%;
   height: 690rpx;
 }
@@ -26,6 +27,25 @@
 }
 
 /* 产品 */
+.btn-add {
+  position: absolute;
+  z-index: 1;
+  top: 30rpx;
+  right: 30rpx;
+  height: 45rpx;
+  width: 45rpx;
+}
+.btn-add__image {
+  height: 100%;
+  width: 100%;
+}
+.text-price {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  font-size: 32rpx;
+  color: #ffffff;
+}
 
 /* footer */
 .footer {

@@ -6,6 +6,7 @@ const app = getApp()
 
 Page({
   data: {
+    ready: false,
     bannerList: [],
     productionList: []
   },
@@ -35,6 +36,9 @@ Page({
   },
   async fetchProductionList() {
     // 获取商品数据
+    wx.showLoading({
+      icon: 'none'
+    })
     try {
       let res = await productionApi.getList()
       if (res.success) {
@@ -52,6 +56,7 @@ Page({
     } catch(e) {
       console.error(e)
     }
+    wx.hideLoading()
   },
   callUS() {
     wx.makePhoneCall({
