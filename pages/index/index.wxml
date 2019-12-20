@@ -21,7 +21,32 @@
     </view>
   </view>
   <view class="footer">
-    
+    <view class="footer__logo"></view>
+    <view class="footer__slogen">
+      <view class="slogen-zh"><text>把生活</text></view>
+      <view class="slogen-zh"><text>花的美好</text></view>
+      <view class="line"></view>
+      <view class="slogen-en" style="margin-top: 28rpx;"><text>FOCUS ON DESIGN</text></view>
+      <view class="slogen-en"><text>NARRATING THE BEAUTY OF LIFE</text></view>
+    </view>
+    <view class="store-info-box">
+      <view class="info-row">
+        <view class="info-row__icon icon"></view>
+        <view class="info-text-box">
+          <text>一键关注花叙花房</text>
+          <text>云南 昆明</text>
+          <text>正义坊钱王街39号</text>
+        </view>
+      </view>
+      <view class="info-row" bindtap="callUS">
+        <view class="info-row__icon bee"></view>
+        <view class="info-text-box">
+          <text>一键咨询客服小花</text>
+          <text>电话咨询</text>
+          <text>183-8829-2884</text>
+        </view>
+      </view>
+    </view>
   </view>
   <navigator url="/pages/cart/cart" class="btn-cart"></navigator>
 </view>

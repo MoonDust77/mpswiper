@@ -52,5 +52,10 @@ Page({
     } catch(e) {
       console.error(e)
     }
+  },
+  callUS() {
+    wx.makePhoneCall({
+      phoneNumber: "18388292884",
+    })
   }
 })

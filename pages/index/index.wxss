@@ -26,3 +26,70 @@
 }
 
 /* 产品 */
+
+/* footer */
+.footer {
+  padding-bottom: 200rpx;
+}
+.footer__logo {
+  width: 570rpx;
+  height: 328rpx;
+  margin: 0 auto;
+  background: url('https://images.jxpanda.com/icon/house-black.png?x-oss-process=image/resize,w_570') #ffffff;
+  background-size: cover;
+}
+.footer__slogen {
+  text-align: center;
+  margin-top: -40rpx;
+  color: #333333;
+}
+.slogen-zh {
+  position: relative;
+  font-size: 30rpx;
+  letter-spacing: 20rpx;
+}
+.line {
+  margin: 40rpx auto 0;
+  height: 4rpx;
+  width: 10rpx;
+  background: #333;
+}
+.slogen-en {
+  font-size: 20rpx;
+}
+.store-info-box {
+  margin-top: 72rpx;
+}
+.info-row {
+  display: flex;
+  margin: 0 auto;
+  width: 380rpx;
+  height: 128rpx;
+}
+.info-row + .info-row {
+  margin-top: 42rpx;
+}
+.info-row__icon {
+  flex: 0 0 128rpx;
+  height: 128rpx;
+  border-radius: 20rpx;
+}
+.info-row__icon.icon {
+  background-image: url('https://images.jxpanda.com/icon/floravita-icon.png?x-oss-process=image/resize,w_128,h_128');
+  background-size: cover;
+}
+.info-row__icon.bee {
+  background-image: url('https://images.jxpanda.com/icon/bee.png?x-oss-process=image/resize,w_128,h_128');
+  background-size: cover;
+}
+.info-text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+  margin-left: 28rpx;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  color: #868686;
+  font-size: 26rpx;
+}
