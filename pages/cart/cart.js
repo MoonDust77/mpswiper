@@ -1,4 +1,8 @@
 // pages/cart/cart.js
+import regeneratorRuntime from '../../utils/runtime.js'
+import { cartApi } from '../../api/index'
+
+
 const app = getApp()
 Page({
 
@@ -6,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isIphoneX: app.globalData.isIphoneX
+    isIphoneX: app.globalData.isIphoneX,
+    productsList: [],
+    operation: []
   },
 
   /**
@@ -27,9 +33,38 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.fetchData()
   },
 
+  async fetchData() {
+    wx.showLoading({
+      icon: 'none'
+    })
+    try {
+      let res = await cartApi.getCartList()
+      let {
+        success,
+        message = '系统繁忙，请稍后重试',
+        data
+      } = res
+      if (success) {
+        // 查询成功
+        this.setData({
+          productsList: data.items,
+          operation: data.operation
+        })
+      } else {
+        console.error(message)
+        wx.showToast({
+          title: message,
+          icon: 'none'
+        })
+      }
+    } catch(e) {
+      console.error(e)
+    }
+    wx.hideLoading()
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

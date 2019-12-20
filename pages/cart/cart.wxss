@@ -124,6 +124,7 @@
   color: #727272;
   font-size: 32rpx;
   line-height: 44rpx;
+  margin-top: 10rpx;
 }
 .btn-row {
   margin-top: 40rpx;
