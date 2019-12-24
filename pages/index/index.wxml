@@ -55,4 +55,5 @@
     </view>
   </view>
   <navigator url="/pages/cart/cart" class="btn-cart"></navigator>
+  <add-cart></add-cart>
 </view>
