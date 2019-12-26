@@ -1,6 +1,6 @@
 <!--components/add2Cart/add2Cart.wxml-->
 <view class="add2Cart-wrapper" catchtouchmove="preventTouchMove" catchtap="hideAdd2Cart" animation="{{animationData}}">
-  <view class="add2Cart-box" animation="{{animationPannel}}">
+  <view class="add2Cart-box" animation="{{animationPannel}}" catchtap="preventTouchMove">
     <view class="production-info">
       <text class="production-info__name">{{name}}</text>
       <text class="production-info__price">{{price}}</text>

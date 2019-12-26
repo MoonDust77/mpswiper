@@ -67,7 +67,7 @@ Page({
   },
   add2Cart(event) {
     this.setData({
-      add2CartId: event.currentTarget.dataset.id,
+      add2CartId: event.currentTarget.dataset.id || '',
       showAdd2Cart: !this.data.showAdd2Cart
     })
   }
