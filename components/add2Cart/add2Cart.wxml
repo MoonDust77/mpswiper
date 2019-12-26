@@ -1,9 +1,9 @@
 <!--components/add2Cart/add2Cart.wxml-->
-<view class="add2Cart-wrapper" catchtouchmove="preventTouchMove">
-  <view class="add2Cart-box">
+<view class="add2Cart-wrapper" catchtouchmove="preventTouchMove" catchtap="hideAdd2Cart" animation="{{animationData}}">
+  <view class="add2Cart-box" animation="{{animationPannel}}">
     <view class="production-info">
-      <text class="production-info__name">逐光系列</text>
-      <text class="production-info__price">￥20.9</text>
+      <text class="production-info__name">{{name}}</text>
+      <text class="production-info__price">{{price}}</text>
     </view>
     <view class="swiper-box">
       <swiper previous-margin="186rpx"
@@ -13,37 +13,22 @@
         indicator-active-color="#A8A8A8"
         indicator-color="#ffffff"
         class="production-swiper">
-        <swiper-item>
-          <image src="https://images.jxpanda.com/pic/NnP8BH8TQWsKSvOf.jpg" class="production-swiper__img" />
-        </swiper-item>
-        <swiper-item>
-          <image src="https://images.jxpanda.com/pic/q8a6xR5yUaRTBQCz.jpg" class="production-swiper__img" />
-        </swiper-item>
-        <swiper-item>
-          <image src="https://images.jxpanda.com/pic/xqH3xo2k2t2ubNdC.jpg" class="production-swiper__img" />
+        <swiper-item wx:for="{{images}}" wx:key="item">
+          <image src="{{item}}" class="production-swiper__img" />
         </swiper-item>
       </swiper>
     </view>
     <view class="production-sku-box">
       <view class="row">
-        <view class="row__title"><text>Size</text></view>
+        <view class="row__title"><text>{{size.label}}</text></view>
         <view class="row__item-list">
-          <view class="item-list__item active"><text>M</text></view>
-          <view class="item-list__item"><text>M</text></view>
-          <view class="item-list__item"><text>M</text></view>
-          <view class="item-list__item"><text>M</text></view>
-          <view class="item-list__item"><text>M</text></view>
+          <view class="item-list__item {{ item.selected ? 'active' : ''}}" wx:for="{{size.values}}" wx:key="id"><text>{{item.text}}</text></view>
         </view>
       </view>
       <view class="row">
-        <view class="row__title"><text>Color</text></view>
+        <view class="row__title"><text>{{color.label}}</text></view>
         <view class="row__item-list">
-          <view class="item-list__item icon-selected" style="background-color: {{'#97C27E'}};"></view>
-          <view class="item-list__item" style="background-color: {{'#E2989B'}};"></view>
-          <view class="item-list__item" style="background-color: {{'#FFDA58'}};"></view>
-          <view class="item-list__item" style="background-color: {{'#CDCFBA'}};"></view>
-          <view class="item-list__item" style="background-color: {{'#FD9C46'}};"></view>
-          <view class="item-list__item" style="background-color: {{'#8E9D64'}};"></view>
+          <view class="item-list__item {{item.selected ? 'icon-selected' : ''}}" style="background-color: {{item.value}};" wx:for="{{color.values}}" wx:key="id"></view>
         </view>
       </view>
     </view>

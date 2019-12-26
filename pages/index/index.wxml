@@ -15,7 +15,7 @@
         <yu-swiper-slide wx:for="{{item}}" wx:for-item="product" wx:for-index="idx" wx:key="id">
           <view class="image-box">
             <image class="image" src="{{product.mainImage}}" />
-            <view class="btn-add">
+            <view class="btn-add" data-id="{{product.id}}" bindtap="add2Cart">
               <image src="../../assets/images/add.png" class="btn-add__image" />
             </view>
             <view class="text-price">
@@ -55,5 +55,5 @@
     </view>
   </view>
   <navigator url="/pages/cart/cart" class="btn-cart"></navigator>
-  <add-cart></add-cart>
+  <add-cart wx:if="{{showAdd2Cart}}" bindhideAdd2Cart="add2Cart" productionId="{{add2CartId}}"></add-cart>
 </view>

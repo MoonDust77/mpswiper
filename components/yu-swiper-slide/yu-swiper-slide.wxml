@@ -3,5 +3,5 @@
   class="yu-swiper__slide"
   style="transform: translate3d({{translateX}}, {{translateY}}, 0rpx) scale({{scale}}); z-index: {{zIndex}}; opacity: {{opacity}}">
   <slot></slot>
-  <view class="slide-mask" style="background-color: {{maskColor}}"></view>
+  <view class="slide-mask" style="background-color: {{maskColor}}" wx:if="{{maskColor !== 'none'}}"></view>
 </view>

@@ -8,7 +8,9 @@ Page({
   data: {
     ready: false,
     bannerList: [],
-    productionList: []
+    productionList: [],
+    showAdd2Cart: false,
+    add2CartId: ''
   },
   onLoad: function () {
     this.fetchBannerList()
@@ -37,7 +39,7 @@ Page({
   async fetchProductionList() {
     // 获取商品数据
     wx.showLoading({
-      icon: 'none'
+      title: '加载中'
     })
     try {
       let res = await productionApi.getList()
@@ -61,6 +63,12 @@ Page({
   callUS() {
     wx.makePhoneCall({
       phoneNumber: "18388292884",
+    })
+  },
+  add2Cart(event) {
+    this.setData({
+      add2CartId: event.currentTarget.dataset.id,
+      showAdd2Cart: !this.data.showAdd2Cart
     })
   }
 })
