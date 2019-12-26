@@ -28,7 +28,7 @@
       <view class="row">
         <view class="row__title"><text>Size</text></view>
         <view class="row__item-list">
-          <view class="item-list__item"><text>M</text></view>
+          <view class="item-list__item active"><text>M</text></view>
           <view class="item-list__item"><text>M</text></view>
           <view class="item-list__item"><text>M</text></view>
           <view class="item-list__item"><text>M</text></view>
@@ -38,7 +38,7 @@
       <view class="row">
         <view class="row__title"><text>Color</text></view>
         <view class="row__item-list">
-          <view class="item-list__item" style="background-color: {{'#97C27E'}};"></view>
+          <view class="item-list__item icon-selected" style="background-color: {{'#97C27E'}};"></view>
           <view class="item-list__item" style="background-color: {{'#E2989B'}};"></view>
           <view class="item-list__item" style="background-color: {{'#FFDA58'}};"></view>
           <view class="item-list__item" style="background-color: {{'#CDCFBA'}};"></view>
