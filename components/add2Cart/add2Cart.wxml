@@ -32,8 +32,11 @@
         </view>
       </view>
     </view>
-    <view class="btn-box">
+    <view class="btn-box" wx:if="{{isLogin}}">
       <view class="btn-add" catchtap="add2Cart"><text>加入购物车</text></view>
+    </view>
+    <view class="btn-box" wx:else>
+      <view class="btn-add" style="background-color: #D7D7D7;"><text>登录后购买</text></view>
     </view>
   </view>
 </view>

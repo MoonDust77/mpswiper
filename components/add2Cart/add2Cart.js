@@ -1,6 +1,7 @@
 // components/add2Cart/add2Cart.js
 import regeneratorRuntime from '../../utils/runtime.js'
 import { productionApi, cartApi } from '../../api/index'
+const app = getApp()
 Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
@@ -30,13 +31,15 @@ Component({
     color: {},
     size: {},
     animationMask: null,
-    animationPannel: null
+    animationPannel: null,
+    isLogin: false
   },
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
       this.setData({
-        selectedId: this.data.productionId
+        selectedId: this.data.productionId,
+        isLogin: app.checkSignInsStatus() ? true : false
       })
       this.fetchData()
     },
@@ -44,6 +47,14 @@ Component({
       // 在组件实例被从页面节点树移除时执行
       // console.log('detached...')
     },
+  },
+  pageLifetimes: {
+    show: function () {
+      // 页面被展示
+      this.setData({
+        isLogin: app.checkSignInsStatus() ? true : false
+      })
+    }
   },
   /**
    * 组件的方法列表
@@ -126,9 +137,6 @@ Component({
     },
     // 加入购物车
     async add2Cart() {
-      // wx.showLoading({
-      //   title: '加载中'
-      // })
       wx.showLoading({
         title: '加载中'
       })

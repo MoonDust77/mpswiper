@@ -95,7 +95,7 @@
   line-height: 90rpx;
   background-color: #E42A88;
   color: #ffffff;
-  font-size: 28rpx;
+  font-size: 30rpx;
   text-align: center;
   border-bottom-left-radius: 30rpx;
   border-bottom-right-radius: 30rpx;

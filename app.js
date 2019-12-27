@@ -83,23 +83,6 @@ App({
     this.globalData.wxSnsInfo = wx.getStorageSync('wxSnsInfo') || {}
   },
   /**
-   * 错误处理
-   * @param {String} errorMsg 提示语
-   * @param {String|Number} code 提示code
-   */
-  handleError(errorMsg, code) {
-    let content = '系统繁忙，请稍后重试'
-    if (errorMsg) {
-      content = errorMsg
-    }
-    if (typeof code !== 'undefined') {
-      content += '，code:' + code
-    }
-    common.showModal('提示', content, false, '我知道了', '', function (res) {
-      if (res.confirm) { }
-    })
-  },
-  /**
      * 登陆
      */
   signIn() {
