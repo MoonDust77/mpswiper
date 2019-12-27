@@ -22,13 +22,13 @@
       <view class="row">
         <view class="row__title"><text>{{size.label}}</text></view>
         <view class="row__item-list">
-          <view class="item-list__item {{ item.selected ? 'active' : ''}}" wx:for="{{size.values}}" wx:key="id"><text>{{item.text}}</text></view>
+          <view class="item-list__item {{ item.selected ? 'active' : ''}}" wx:for="{{size.values}}" wx:key="id" data-id="{{item.id}}" catchtap="changeSku"><text>{{item.text}}</text></view>
         </view>
       </view>
       <view class="row">
         <view class="row__title"><text>{{color.label}}</text></view>
         <view class="row__item-list">
-          <view class="item-list__item {{item.selected ? 'icon-selected' : ''}}" style="background-color: {{item.value}};" wx:for="{{color.values}}" wx:key="id"></view>
+          <view class="item-list__item {{item.selected ? 'icon-selected' : ''}}" style="background-color: {{item.value}};" wx:for="{{color.values}}" wx:key="id" data-id="{{item.id}}" catchtap="changeSku"></view>
         </view>
       </view>
     </view>

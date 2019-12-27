@@ -70,7 +70,6 @@ Component({
             size = {}
           } = res.data
           // 查询成功
-          console.log(res.data)
           this.setData({
             name,
             images,
@@ -111,6 +110,13 @@ Component({
         animationData: animationMask.export(),
         animationPannel: animationPannel.export()
       })
+    },
+    // 改变sku
+    changeSku(event) {
+      this.setData({
+        selectedId: event.currentTarget.dataset.id || ''
+      })
+      this.fetchData()
     }
   }
 })
