@@ -32,8 +32,8 @@
   z-index: 1;
   top: 30rpx;
   right: 30rpx;
-  height: 45rpx;
-  width: 45rpx;
+  height: 60rpx;
+  width: 60rpx;
 }
 .btn-add__image {
   height: 100%;
@@ -43,7 +43,7 @@
   position: absolute;
   top: 30rpx;
   left: 30rpx;
-  font-size: 32rpx;
+  font-size: 40rpx;
   color: #ffffff;
 }
 
