@@ -61,14 +61,20 @@ Component({
       })
       try {
         let res = await productionApi.getDetail(this.data.selectedId)
-        if (res.success) {
+        wx.hideLoading()
+        let {
+          success,
+          message = '系统繁忙，请稍后重试',
+          data
+        } = res
+        if (success) {
           let {
             name = '',
             images = [],
             price = '',
             color = {},
             size = {}
-          } = res.data
+          } = data
           // 查询成功
           this.setData({
             name,
@@ -78,16 +84,16 @@ Component({
             size
           })
         } else {
-          console.error(res.message)
+          console.error(message)
           wx.showToast({
-            title: res.message,
+            title: message,
             icon: 'none'
           })
         }
       } catch(e) {
+        wx.hideLoading()
         console.error(e)
       }
-      wx.hideLoading()
       this.showPannel()
     },
     // 显示
@@ -123,9 +129,8 @@ Component({
       // wx.showLoading({
       //   title: '加载中'
       // })
-      wx.showToast({
-        title: '花花在购物车等你哟~',
-        icon: 'none'
+      wx.showLoading({
+        title: '加载中'
       })
       try {
         let res = await cartApi.add({
@@ -133,15 +138,19 @@ Component({
           quantity: 1
         })
         wx.hideLoading()
-        if (res.success) {
+        let {
+          success,
+          message = '系统繁忙，请稍后重试'
+        } = res
+        if (success) {
           wx.showToast({
             title: '花花在购物车等你哟~',
             icon: 'none'
           })
         } else {
-          console.error(res.message)
+          console.error(message)
           wx.showToast({
-            title: res.message,
+            title: message,
             icon: 'none'
           })
         }

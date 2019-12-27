@@ -22,11 +22,11 @@
             <view><text>{{item.price}}</text></view>
           </view>
           <view class="info__number">
-            <view class="btn-cart">
+            <view class="btn-cart" bindtap="changeNum" data-id="{{item.id}}" data-type="minus">
               <image src="../../assets/images/minus-num.png" class="btn-cart__img" />
             </view>
             <text class="text-number">{{item.quantity}}</text>
-            <view class="btn-cart btn-plus">
+            <view class="btn-cart btn-plus" bindtap="changeNum" data-id="{{item.id}}" data-type="add">
               <image src="../../assets/images/add-num.png" class="btn-cart__img" />
             </view>
           </view>
@@ -39,7 +39,7 @@
         <text>{{item.value}}</text>
       </view>
       <view class="btn-row">
-        <view class="btn continue"><text>继续逛逛</text></view>
+        <view class="btn continue" bindtap="goHomePage"><text>继续逛逛</text></view>
         <view class="btn make-order"><text>支 付</text></view>
       </view>
     </view>

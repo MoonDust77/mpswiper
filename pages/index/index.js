@@ -20,15 +20,20 @@ Page({
     // 获取Banner数据
     try {
       let res = await commonApi.getBannerList()
-      if (res.success) {
+      let {
+        success,
+        message = '系统繁忙，请稍后重试',
+        data
+      } = res
+      if (success) {
         // 查询成功
         this.setData({
-          bannerList: res.data
+          bannerList: data
         })
       } else {
-        console.error(res.message)
+        console.error(message)
         wx.showToast({
-          title: res.message,
+          title: message,
           icon: 'none'
         })
       }
@@ -43,22 +48,28 @@ Page({
     })
     try {
       let res = await productionApi.getList()
-      if (res.success) {
+      wx.hideLoading()
+      let {
+        success,
+        message = '系统繁忙，请稍后重试',
+        data
+      } = res
+      if (success) {
         // 查询成功
         this.setData({
-          productionList: res.data
+          productionList: data
         })
       } else {
-        console.error(res.message)
+        console.error(message)
         wx.showToast({
-          title: res.message,
+          title: message,
           icon: 'none'
         })
       }
     } catch(e) {
+      wx.hideLoading()
       console.error(e)
     }
-    wx.hideLoading()
   },
   callUS() {
     wx.makePhoneCall({
