@@ -1,6 +1,6 @@
 // components/add2Cart/add2Cart.js
 import regeneratorRuntime from '../../utils/runtime.js'
-import { productionApi } from '../../api/index'
+import { productionApi, cartApi } from '../../api/index'
 Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
@@ -117,6 +117,39 @@ Component({
         selectedId: event.currentTarget.dataset.id || ''
       })
       this.fetchData()
+    },
+    // 加入购物车
+    async add2Cart() {
+      // wx.showLoading({
+      //   title: '加载中'
+      // })
+      wx.showToast({
+        title: '花花在购物车等你哟~',
+        icon: 'none'
+      })
+      try {
+        let res = await cartApi.add({
+          productId: this.data.selectedId,
+          quantity: 1
+        })
+        wx.hideLoading()
+        if (res.success) {
+          wx.showToast({
+            title: '花花在购物车等你哟~',
+            icon: 'none'
+          })
+        } else {
+          console.error(res.message)
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
+      } catch (e) {
+        wx.hideLoading()
+        console.error(e)
+      }
+      this.hideAdd2Cart()
     }
   }
 })
