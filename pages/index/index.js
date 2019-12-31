@@ -44,11 +44,11 @@ Page({
   async fetchProductionList() {
     // 获取商品数据
     try {
-      wx.showLoading({
-        title: '加载中'
-      })
+      // wx.showLoading({
+      //   title: '加载中'
+      // })
       let res = await productionApi.getList()
-      wx.hideLoading()
+      // wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',
