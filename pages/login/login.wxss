@@ -1,0 +1,57 @@
+/* pages/login/login.wxss */
+.container {
+  position: relative;
+  padding-top: 145rpx;
+  box-sizing: border-box;
+  height: 100vh;
+  background: url('https://images.jxpanda.com/icon/vase.png?x-oss-process=image/resize,w_90,h_90') center 95% no-repeat;
+}
+.login__image-box {
+  position: relative;
+  width: 600rpx;
+  margin: 0 auto;
+  background: url('https://images.jxpanda.com/icon/house-white-1.png?x-oss-process=image/resize,w_600,h_340') top #FFDD61 no-repeat;
+  background-size: contain;
+  height: 340rpx;
+  border-radius: 30rpx;
+}
+.login__slogen {
+  position: absolute;
+  bottom: 30rpx;
+  width: 100%;
+  color: #ffffff;
+  letter-spacing: 16rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.btn-box {
+  width: 600rpx;
+  margin: 122rpx auto 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 45rpx !important;
+  height: 102rpx;
+  width: 600rpx !important;
+  background: #fff;
+  border: 1rpx solid #0BB908;
+  color: #0BB908;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+}
+
+.btn.bg-green {
+  background-color: #31F47F;
+  border: none;
+  color: #fff;
+}
+.icon {
+  width: 64rpx;
+  height: 64rpx;
+  /* vertical-align: middle; */
+  margin-right: 10rpx;
+}

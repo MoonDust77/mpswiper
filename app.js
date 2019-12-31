@@ -8,8 +8,6 @@ App({
     this.updateApp()
     // 存储系统信息
     this.getSystemInfo()
-    // 存储全局微信认证信息
-    this.setWxSnsInfo()
     // 初始化用户信息
     this.setUserToken()
   },
@@ -77,12 +75,6 @@ App({
     this.globalData.token = wx.getStorageSync('token') || ''
   },
   /**
-     * 设置全局微信认证信息
-     */
-  setWxSnsInfo() {
-    this.globalData.wxSnsInfo = wx.getStorageSync('wxSnsInfo') || {}
-  },
-  /**
      * 登陆
      */
   signIn() {
@@ -96,9 +88,9 @@ App({
     * 退出登陆
     */
   signOut() {
-    this.resetGlobalUserInfo()
-    wx.removeStorageSync('user')
-    wx.removeStorageSync('wxSnsInfo')
+    Object.assign(this.globalData, {
+      token: ''
+    })
   },
   /**
    * 判断用户登录状态
@@ -106,19 +98,9 @@ App({
   checkSignInsStatus() {
     return this.globalData.token
   },
-  /**
-   * 重置全局存储用户信息
-   */
-  resetGlobalUserInfo() {
-    Object.assign(this.globalData, {
-      wxSnsInfo: {},
-      token: ''
-    })
-  },
   globalData: {
     token: '',
     systemInfo: {},
-    wxSnsInfo: {},
     isIphoneX: false,
     canUseSubscribeMessage: true,
     supportMultipleMessage: true

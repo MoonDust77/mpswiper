@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.4",
+	"libVersion": "2.9.3",
 	"appid": "wx30a906c2484252f1",
 	"projectname": "flower-fe",
 	"debugOptions": {
@@ -58,6 +58,13 @@
 					"id": -1,
 					"name": "购物车",
 					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录页面",
+					"pathName": "pages/login/login",
 					"scene": null
 				}
 			]

@@ -19,7 +19,7 @@ function fetch(url = '', params = {}, method = 'GET', options = {}) {
     token = app.globalData.token
   } else {
     systemInfo = wx.getStorageSync('systemInfo') || {}
-    token = wx.getStorageSync('user') && wx.getStorageSync('user').token
+    token = wx.getStorageSync('token') || ''
   }
   let header = {
     'X-DEFINED-appinfo': JSON.stringify({
@@ -28,7 +28,7 @@ function fetch(url = '', params = {}, method = 'GET', options = {}) {
       wxVersion: systemInfo.version, // 微信版本号
       version: APP_VERSION // 小程序版本号
     }),
-    Authorization: token || ''
+    Authorization: token
   }
   let userHeader = options.header || {}
   Object.assign(header, userHeader)
