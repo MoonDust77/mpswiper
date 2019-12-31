@@ -96,7 +96,7 @@ App({
    * 判断用户登录状态
    */
   checkSignInsStatus() {
-    return this.globalData.token
+    return !!this.globalData.token
   },
   globalData: {
     token: '',

@@ -34,7 +34,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.fetchData()
+    if (app.checkSignInsStatus()) {
+      // 用户已登录
+      this.fetchData()
+    } else {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }
   },
 
   async fetchData() {

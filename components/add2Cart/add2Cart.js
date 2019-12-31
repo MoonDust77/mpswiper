@@ -167,6 +167,12 @@ Component({
         console.error(e)
       }
       this.hideAdd2Cart()
+    },
+    // 跳转登录
+    goLogin() {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
     }
   }
 })

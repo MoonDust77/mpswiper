@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.3",
+	"libVersion": "2.9.4",
 	"appid": "wx30a906c2484252f1",
 	"projectname": "flower-fe",
 	"debugOptions": {

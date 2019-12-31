@@ -1,6 +1,8 @@
 // pages/login/login.js
 import regeneratorRuntime from '../../utils/runtime.js'
 import { commonApi } from '../../api/index'
+
+const app = getApp()
 Page({
 
   /**
@@ -57,6 +59,7 @@ Page({
     }
     try {
       let res = await commonApi.login(paramsReq)
+      wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -68,6 +71,7 @@ Page({
           token: data,
         })
         app.globalData.token = data
+        wx.navigateBack()
       } else {
         console.error(message)
         wx.showToast({
