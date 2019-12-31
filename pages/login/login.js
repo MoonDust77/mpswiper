@@ -67,9 +67,7 @@ Page({
       } = res
       if (success) {
         // 登录成功
-        wx.setStorageSync('token', {
-          token: data,
-        })
+        wx.setStorageSync('token', data)
         app.globalData.token = data
         wx.navigateBack()
       } else {

@@ -49,6 +49,12 @@
   border: none;
   color: #fff;
 }
+
+.btn-home {
+  border: 1px solid #D7D7D7;
+  color: #D7D7D7;
+  margin-top: 30rpx;
+}
 .icon {
   width: 64rpx;
   height: 64rpx;

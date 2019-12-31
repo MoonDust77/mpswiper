@@ -73,6 +73,7 @@ Page({
       wx.hideLoading()
       console.error(e)
     }
+    wx.hideLoading()
   },
 
   // 改变购物车商品数量

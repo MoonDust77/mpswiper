@@ -43,10 +43,10 @@ Page({
   },
   async fetchProductionList() {
     // 获取商品数据
-    wx.showLoading({
-      title: '加载中'
-    })
     try {
+      wx.showLoading({
+        title: '加载中'
+      })
       let res = await productionApi.getList()
       wx.hideLoading()
       let {
@@ -67,7 +67,7 @@ Page({
         })
       }
     } catch(e) {
-      wx.hideLoading()
+      // wx.hideLoading()
       console.error(e)
     }
   },

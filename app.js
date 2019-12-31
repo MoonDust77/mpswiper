@@ -91,6 +91,7 @@ App({
     Object.assign(this.globalData, {
       token: ''
     })
+    wx.removeStorageSync('token')
   },
   /**
    * 判断用户登录状态

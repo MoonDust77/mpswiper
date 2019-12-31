@@ -67,12 +67,12 @@ Component({
       this.triggerEvent('hideAdd2Cart')
     },
     async fetchData() {
-      wx.showLoading({
-        title: '加载中'
-      })
+      // wx.showLoading({
+      //   title: '加载中'
+      // })
       try {
         let res = await productionApi.getDetail(this.data.selectedId)
-        wx.hideLoading()
+        // wx.hideLoading()
         let {
           success,
           message = '系统繁忙，请稍后重试',

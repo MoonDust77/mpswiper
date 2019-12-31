@@ -1,7 +1,7 @@
 /* components/yu-swiper/yu-swiper.wxss */
 .yu-swiper {
   position: relative;
-  overflow: hide;
+  overflow: hidden;
 }
 .dot-box {
   position: absolute;

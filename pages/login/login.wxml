@@ -7,5 +7,6 @@
     <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleGetUserInfo" class="btn bg-green btn-authorization">
       <image class="icon" src="../../assets/images/WeChat.png"></image>微信用户快捷登录
     </button>
+    <navigator url="/pages/index/index" class="btn btn-home">暂不登录</navigator>
   </view>
 </view>

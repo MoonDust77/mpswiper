@@ -54,6 +54,11 @@ function fetch(url = '', params = {}, method = 'GET', options = {}) {
           } else {
             resolve(res.data)
           }
+        } else if (res.statusCode === 403) {
+          getApp().signOut()
+          wx.reLaunch({
+            url: '/pages/index/index'
+          })
         } else {
           wx.showToast({
             icon: 'none',
