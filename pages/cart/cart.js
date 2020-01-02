@@ -45,12 +45,12 @@ Page({
   },
 
   async fetchData() {
-    // wx.showLoading({
-    //   title: '加载中'
-    // })
+    wx.showLoading({
+      title: '加载中'
+    })
     try {
       let res = await cartApi.getCartList()
-      // wx.hideLoading()
+      wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -70,10 +70,10 @@ Page({
         })
       }
     } catch(e) {
-      // wx.hideLoading()
+      wx.hideLoading()
       console.error(e)
     }
-    // wx.hideLoading()
+    wx.hideLoading()
   },
 
   // 改变购物车商品数量
@@ -135,13 +135,13 @@ Page({
   },
   // 请求后端接口，改变商品数量
   async requestChangeCartNum (product) {
-    // wx.showLoading({
-    //   title: '加载中'
-    // })
+    wx.showLoading({
+      title: '加载中'
+    })
     try {
       let { id, productId, quantity = 0 } = product
       let res = await cartApi.changeNum({ id, productId, quantity })
-      // wx.hideLoading()
+      wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -160,7 +160,7 @@ Page({
         })
       }
     } catch(e) {
-      // wx.hideLoading()
+      wx.hideLoading()
       console.error(e)
     }
   },

@@ -17,10 +17,10 @@ Page({
    */
   onLoad: function (options) {
     // 根据用户授权控制页面显隐
-    // wx.showLoading({
-    //   title: '加载中',
-    //   mask: true
-    // })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     wx.login({
       success: res => {
         // 缓存code，wxSns接口需要传
@@ -30,7 +30,7 @@ Page({
         console.log('获取code失败...')
       },
       complete: () => {
-        // wx.hideLoading()
+        wx.hideLoading()
       }
     })
   },
@@ -47,10 +47,10 @@ Page({
   async handleUserInfo(params) {
     const that = this
     // 缓存头像昵称性别，每次登陆都获取新的昵称头像
-    // wx.showLoading({
-    //   title: '加载中',
-    //   mask: true
-    // })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     // 数据请求
     let paramsReq = {
       code: this.data.js_code,
@@ -59,7 +59,7 @@ Page({
     }
     try {
       let res = await commonApi.login(paramsReq)
-      // wx.hideLoading()
+      wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',

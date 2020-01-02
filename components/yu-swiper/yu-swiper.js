@@ -194,7 +194,7 @@ Component({
       // 1.5s动画结束后，放到最后一张
       setTimeout(() => {
         this._setCurrentSlidePosition(current)
-      }, 1500)
+      }, 1000)
 
       if (this.data.current + 1 === nodes.length) {
         this.setData({
@@ -254,7 +254,7 @@ Component({
               scale,
               opacity: 1
             })
-          }, 1500)
+          }, 1000)
         } else {
           nodes[nextIndexArr[index]].setData({
             translateX: '0rpx',
@@ -270,7 +270,7 @@ Component({
         this.setData({
           _isMoving: false
         })
-      }, 1500)
+      }, 1000)
     },
     _setVisibleSlideIndex(nextIndexArr) {
       let nodes = this.data._nodes
