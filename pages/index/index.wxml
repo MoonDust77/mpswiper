@@ -3,7 +3,7 @@
   <view class="banner-container">
     <yu-swiper indicator-dots="{{true}}" autoplay="{{true}}" arrows="{{false}}">
       <yu-swiper-slide wx:for="{{bannerList}}" wx:key="image">
-        <view class="image-box">
+        <view class="image-box" bindtap="goH5Page" data-url="{{item.link}}">
           <image class="image" src="{{item.image}}" />
         </view>
       </yu-swiper-slide>

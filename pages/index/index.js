@@ -81,5 +81,13 @@ Page({
       add2CartId: event.currentTarget.dataset.id || '',
       showAdd2Cart: !this.data.showAdd2Cart
     })
+  },
+  goH5Page(event) {
+    console.log(event.currentTarget.dataset.url)
+    if (event.currentTarget.dataset.url) {
+      wx.navigateTo({
+        url: `/pages/h5/h5?url=${encodeURIComponent(event.currentTarget.dataset.url)}`
+      })
+    }
   }
 })
