@@ -29,9 +29,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    setTimeout(() => {
-      wx.hideLoading()
-    }, 1000)
+    wx.hideLoading()
   },
 
   /**

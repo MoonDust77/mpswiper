@@ -30,7 +30,6 @@ Page({
         console.log('获取code失败...')
       },
       complete: () => {
-        // 微信hideLoadingbug
         setTimeout(() => {
           wx.hideLoading()
         }, 1000)
@@ -62,10 +61,7 @@ Page({
     }
     try {
       let res = await commonApi.login(paramsReq)
-      // 微信hideLoadingbug
-      setTimeout(() => {
-        wx.hideLoading()
-      }, 1000)
+      wx.hideLoading()
       let {
         success,
         message = '系统繁忙，请稍后重试',

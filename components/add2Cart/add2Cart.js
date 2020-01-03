@@ -72,10 +72,7 @@ Component({
       // })
       try {
         let res = await productionApi.getDetail(this.data.selectedId)
-        // 微信hideLoadingbug
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000)
+        wx.hideLoading()
         let {
           success,
           message = '系统繁忙，请稍后重试',
@@ -105,10 +102,7 @@ Component({
           })
         }
       } catch(e) {
-        // 微信hideLoadingbug
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000)
+        wx.hideLoading()
         console.error(e)
       }
       this.showPannel()
@@ -151,10 +145,7 @@ Component({
           productId: this.data.selectedId,
           quantity: 1
         })
-        // 微信hideLoadingbug
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000)
+        wx.hideLoading()
         let {
           success,
           message = '系统繁忙，请稍后重试'
@@ -172,10 +163,7 @@ Component({
           })
         }
       } catch (e) {
-        // 微信hideLoadingbug
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000)
+        wx.hideLoading()
         console.error(e)
       }
       this.hideAdd2Cart()
