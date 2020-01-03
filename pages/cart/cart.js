@@ -50,7 +50,10 @@ Page({
     })
     try {
       let res = await cartApi.getCartList()
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -70,10 +73,12 @@ Page({
         })
       }
     } catch(e) {
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       console.error(e)
     }
-    wx.hideLoading()
   },
 
   // 改变购物车商品数量
@@ -141,7 +146,10 @@ Page({
     try {
       let { id, productId, quantity = 0 } = product
       let res = await cartApi.changeNum({ id, productId, quantity })
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -160,7 +168,10 @@ Page({
         })
       }
     } catch(e) {
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       console.error(e)
     }
   },

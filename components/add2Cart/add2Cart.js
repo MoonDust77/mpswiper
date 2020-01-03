@@ -67,12 +67,15 @@ Component({
       this.triggerEvent('hideAdd2Cart')
     },
     async fetchData() {
-      wx.showLoading({
-        title: '加载中'
-      })
+      // wx.showLoading({
+      //   title: '加载中'
+      // })
       try {
         let res = await productionApi.getDetail(this.data.selectedId)
-        wx.hideLoading()
+        // 微信hideLoadingbug
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1000)
         let {
           success,
           message = '系统繁忙，请稍后重试',
@@ -102,7 +105,10 @@ Component({
           })
         }
       } catch(e) {
-        wx.hideLoading()
+        // 微信hideLoadingbug
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1000)
         console.error(e)
       }
       this.showPannel()
@@ -145,7 +151,10 @@ Component({
           productId: this.data.selectedId,
           quantity: 1
         })
-        wx.hideLoading()
+        // 微信hideLoadingbug
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1000)
         let {
           success,
           message = '系统繁忙，请稍后重试'
@@ -163,7 +172,10 @@ Component({
           })
         }
       } catch (e) {
-        wx.hideLoading()
+        // 微信hideLoadingbug
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1000)
         console.error(e)
       }
       this.hideAdd2Cart()

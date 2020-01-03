@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class="container">
   <view class="login__image-box">
-    <view class="login__slogen"><text>登录你的专属花店</text></view>
+    <!-- <view class="login__slogen"><text>登录你的专属花店</text></view> -->
   </view>
   <view class="btn-box">
     <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleGetUserInfo" class="btn bg-green btn-authorization">

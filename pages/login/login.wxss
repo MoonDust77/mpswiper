@@ -10,7 +10,7 @@
   position: relative;
   width: 600rpx;
   margin: 0 auto;
-  background: url('https://images.jxpanda.com/icon/house-white-1.png?x-oss-process=image/resize,w_600,h_340') top #FFDD61 no-repeat;
+  background: url('https://images.jxpanda.com/pic/login_banner.png') top #FFDD61 no-repeat;
   background-size: contain;
   height: 340rpx;
   border-radius: 30rpx;

@@ -48,7 +48,10 @@ Page({
         title: '加载中'
       })
       let res = await productionApi.getList()
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       let {
         success,
         message = '系统繁忙，请稍后重试',
@@ -67,7 +70,10 @@ Page({
         })
       }
     } catch(e) {
-      wx.hideLoading()
+      // 微信hideLoadingbug
+      setTimeout(() => {
+        wx.hideLoading()
+      }, 1000)
       console.error(e)
     }
   },
